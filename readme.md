@@ -35,7 +35,7 @@ Then, use the web interface to:
 
 ## Configuration
 
-Update your API keys in the script:
+Update your API keys in the script. PLEASE MAKE SURE YOU LEVERAGE PROTECT YOUR KEYS AND THE WAY YOU STORE/CALL THEM.
 
 ```python
 openai_api_key = "YOURKEY"
