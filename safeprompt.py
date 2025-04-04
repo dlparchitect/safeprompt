@@ -229,8 +229,8 @@ st.title("🔐 SafePrompt - Symantec DLP API")
 
 prompt = st.text_area("Enter your prompt:")
 vendor = st.selectbox("Choose AI Vendor", ["OpenAI", "Anthropic", "Google"])
-dlp_prompt_check = st.checkbox("Enable DLP validation for prompt", value=True)
-dlp_response_check = st.checkbox("Enable DLP validation for AI response", value=True)
+dlp_prompt_check = st.checkbox("Enable Symantec DLP validation for prompt", value=True)
+dlp_response_check = st.checkbox("Enable Symantec DLP validation for AI response", value=True)
 uploaded_file = st.file_uploader("Upload file (optional):", type=None)
 
 if st.button("Run"):
@@ -255,12 +255,12 @@ if st.button("Run"):
                     st.markdown(f"📢 **DLP Response Message**:> {custom_message}")
 
                 if violations:
-                    st.markdown("### 🚨 Violations in Prompt")
+                    st.markdown("### 🚨 Sensitive Information  in Prompt")
                     for v in violations:
                         st.markdown(f"- {v}")
 
                 if blocked:
-                    st.error("🚫 Prompt blocked by DLP.")
+                    st.error("🚫 Prompt blocked by Symantec DLP.")
                     st.stop()
 
             try:
@@ -284,12 +284,12 @@ if st.button("Run"):
                     st.markdown(f"📢 **DLP Response Message**:> {custom_message}")
 
                 if violations:
-                    st.markdown("### 🚨 Violations in AI Response")
+                    st.markdown("### 🚨 Sensitive Information in AI Response")
                     for v in violations:
                         st.markdown(f"- {v}")
 
                 if blocked:
-                    st.error("🚫 Response blocked by DLP.")
+                    st.error("🚫 Response blocked by Symantec DLP.")
                     st.stop()
 
             st.success("✅ AI Response")
